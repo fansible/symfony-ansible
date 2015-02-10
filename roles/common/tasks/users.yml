@@ -1,0 +1,34 @@
+---
+# configure www-data user
+
+- name: update www-data shell
+  user: name=www-data shell=/bin/bash
+
+- name: set correct permissions
+  file: path=/var/www owner=www-data group=www-data mode=0755 state=directory
+
+- name: set correct permissions for ssh dir
+  file: path=/var/www/.ssh owner=www-data group=www-data mode=0700 state=directory
+
+- name: set correct permissions for tmp dir
+  file: path=/tmp mode=0777 state=directory
+
+- name: add www-data to sudoers
+  copy: src=etc/sudoers.d/10-www-data
+        dest=/etc/sudoers.d/10-www-data
+        owner=root group=root
+        mode=0440 validate="visudo -cf %s"
+  when: inventory_hostname == "vagrant"
+
+# http://docs.ansible.com/authorized_key_module.html
+- name: Set up authorized_keys for the root user
+  authorized_key: user=www-data
+                  key="{{ item }}"
+  with_items: projects_keys
+  when: projects_keys|length > 0
+
+- name: Set up authorized_keys for the root user
+  authorized_key: user=root
+                  key="{{ item }}"
+  with_items: projects_keys
+  when: projects_keys|length > 0

@@ -1,0 +1,20 @@
+{
+    "name": "fansible/composer",
+    "license": "MIT",
+    "type": "Provisioning with ansible vendor",
+    "description": "This will help you to provision and maintain your server up to date",
+    "keywords": ["Provisioning Server Ansible Security"],
+    "authors": [
+        {
+            "name": "Maxime Thoonsen",
+            "email": "maximet@theodo.fr"
+        }
+    ],"require": {
+        "symfony/symfony": "2.3.*"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.x-dev"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: MaximeThoonsen
+  description: PHP Ubuntu Trusty.
+  license: "license MIT"
+  min_ansible_version: 1.4
+  platforms:
+  - name: Ubuntu
+    versions:
+    - Trusty
+  categories:
+    - development
+    - web
