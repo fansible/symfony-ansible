@@ -1,8 +1,8 @@
 {
     "name": "fansible/composer",
     "license": "MIT",
-    "type": "Provisioning with ansible vendor",
-    "description": "This will help you to provision and maintain your server up to date",
+    "type": "Provisioning with Ansible vendor",
+    "description": "This will help you to provision and maintain your server up to date to run your Symfony apps",
     "keywords": ["Provisioning Server Ansible Security"],
     "authors": [
         {
