@@ -1,4 +1,4 @@
-# Ansible project for composer uses
+# Ansible provisioning for Symfony project using composer
 This will help you to provision and maintain your server up to date to run your Symfony apps
 
 ## How to use it
@@ -32,7 +32,8 @@ This will help you to provision and maintain your server up to date to run your 
         host: "%"
         pass: "{{ name }}"
 
-You can then run your ansible provisioning: `ansible-playbook -i app/config/ansible/prod vendor/fansible/composer/playbook.yml -u root`
+You can then run your ansible provisioning: `ansible-playbook -i app/config/ansible/prod vendor/fansible/composer/playbook.yml -u root`.
+Or for your vagrant: `vagrant provision`
 
 ## Vagrant
 
