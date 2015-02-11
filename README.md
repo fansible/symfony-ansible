@@ -9,7 +9,7 @@ This will help you to provision and maintain your server up to date to run your 
 
     [defaults]
     hostfile = app/config/ansible/hosts
-    roles_path = vendor/ansible/roles
+    roles_path = vendor/fansible/composer/roles
 
 3) Add your hosts configurations in `app/config/ansible/hosts` as for vagrant:
 
@@ -32,7 +32,7 @@ This will help you to provision and maintain your server up to date to run your 
         host: "%"
         pass: "{{ name }}"
 
-
+You can then run your ansible provisioning: `ansible-playbook -i app/config/ansible/prod vendor/fansible/composer/playbook.yml -u root`
 
 ## Vagrant
 
@@ -64,7 +64,7 @@ Here is a Vagrantfile you can use for your project:
       # Ansible see https://docs.vagrantup.com/v2/provisioning/ansible.html
       config.vm.provision "ansible" do |ansible|
         ansible.sudo = true
-        ansible.playbook = "vendor/fansible/playbook.yml"
+        ansible.playbook = "vendor/fansible/composer/playbook.yml"
         ansible.limit = 'vagrant'
         ansible.inventory_path = "app/config/ansible/hosts/vagrant"
         ansible.verbose = "v" #Use vvvv to get more log
