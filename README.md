@@ -1,9 +1,9 @@
 # Ansible provisioning for Symfony project using composer
-This project is meant to make the provisioning of servers as easy as possible to run Symfony apps.
+This project is meant to make the provisioning of servers running one Symfony apps as easy and fast as possible.
 
 ## How to use it
 
-1) Add fansible/composer in your composer.json : `"fansible/composer": "dev-master",`
+1) Require fansible/composer in your composer.json : `composer require --dev "fansible/composer"`
 
 2) Add the file ansible.cfg in your root directory with
 
@@ -16,7 +16,7 @@ This project is meant to make the provisioning of servers as easy as possible to
     [vagrant]
     vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
 
-4) Add your group_vars file in `app/config/ansible/hosts/group_vars` as for vagrant:
+4) Add the specific vars of your host. For vagrant, create a file called `vagrant` in `app/config/ansible/hosts/group_vars`:
 
     ---
     # File: app/config/ansible/hosts/group_vars/vagrant
@@ -32,12 +32,13 @@ This project is meant to make the provisioning of servers as easy as possible to
         host: "%"
         pass: "{{ name }}"
 
-You can then run your ansible provisioning: `ansible-playbook -i app/config/ansible/hosts/prod vendor/fansible/composer/playbook.yml -u root`.
-Or for your vagrant: `vagrant provision`
+You can then run your ansible provisioning.
+For your vagrant: `vagrant provision`
+For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fansible/composer/playbook.yml -u root`.
 
-## Vagrant
+## Bonus step for Vagrant
 
-Here is a Vagrantfile you can use for your project:
+You need to create Here is a Vagrantfile you can use for your project:
 
     # -*- mode: ruby -*-
     # vi: set ft=ruby :

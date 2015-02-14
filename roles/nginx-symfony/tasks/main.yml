@@ -20,9 +20,15 @@
   file: path=/etc/nginx/sites-available/default state=absent
   notify: reload-nginx
 
-- name: add server main listener
+- name: add virtual host conf
   template: src=etc/nginx/conf.d/conf dest=/etc/nginx/conf.d/main.conf
   notify: restart-nginx
+  when: is_vagrant is not defined
+
+- name: add virtual host conf for vagrant (app_dev.php targeted instead of app_php)
+  template: src=etc/nginx/conf.d/vagrantconf dest=/etc/nginx/conf.d/main.conf
+  notify: restart-nginx
+  when: is_vagrant is defined
 
 - name: nginx - update mime types
   copy: src=etc/nginx/mime.types dest=/etc/nginx/mime.types owner=root group=root mode=0644
