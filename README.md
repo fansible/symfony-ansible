@@ -11,8 +11,8 @@ This project is meant to make the provisioning of servers as easy as possible to
     hostfile = app/config/ansible/hosts
     roles_path = vendor/fansible/composer/roles
 
-3) Add your hosts configurations in `app/config/ansible/hosts` as for vagrant:
-
+3) Add your hosts configurations. For vagrant, create a file called `vagrant` in `app/config/ansible/hosts`:
+    
     [vagrant]
     vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
 
