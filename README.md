@@ -32,13 +32,13 @@ This project is meant to make the provisioning of servers running one Symfony ap
         host: "%"
         pass: "{{ name }}"
 
-You can then run your ansible provisioning.
+5) If you have already installed Ansible, you can now run your provisioning.
 For your vagrant: `vagrant provision`
 For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fansible/composer/playbook.yml -u root`.
 
 ## Bonus step for Vagrant
 
-You need to create Here is a Vagrantfile you can use for your project:
+1) You need to create Here is a Vagrantfile you can use for your project:
 
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
@@ -72,3 +72,22 @@ You need to create Here is a Vagrantfile you can use for your project:
         ansible.verbose = "v" #Use vvvv to get more log
       end
     end
+
+2) Change your app_dev.php to allow remote connection. You can copy/paste:
+
+    <?php
+
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\Debug\Debug;
+
+    $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
+    Debug::enable();
+
+    require_once __DIR__.'/../app/AppKernel.php';
+
+    $kernel = new AppKernel('dev', true);
+    $kernel->loadClassCache();
+    $request = Request::createFromGlobals();
+    $response = $kernel->handle($request);
+    $response->send();
+    $kernel->terminate($request, $response);
