@@ -1,5 +1,5 @@
 # Ansible provisioning for Symfony project using composer
-This will help you to provision and maintain your server up to date to run your Symfony apps
+This project is meant to make the provisioning of servers as easy as possible to run Symfony apps.
 
 ## How to use it
 
