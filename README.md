@@ -32,7 +32,7 @@ This project is meant to make the provisioning of servers as easy as possible to
         host: "%"
         pass: "{{ name }}"
 
-You can then run your ansible provisioning: `ansible-playbook -i app/config/ansible/prod vendor/fansible/composer/playbook.yml -u root`.
+You can then run your ansible provisioning: `ansible-playbook -i app/config/ansible/hosts/prod vendor/fansible/composer/playbook.yml -u root`.
 Or for your vagrant: `vagrant provision`
 
 ## Vagrant
