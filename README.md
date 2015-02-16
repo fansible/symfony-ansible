@@ -74,22 +74,3 @@ For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fan
         ansible.verbose = "v" #Use vvvv to get more log
       end
     end
-
-2) Change your web/app_dev.php to allow remote connection. You can copy/paste:
-
-    <?php
-
-    use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\Debug\Debug;
-
-    $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
-    Debug::enable();
-
-    require_once __DIR__.'/../app/AppKernel.php';
-
-    $kernel = new AppKernel('dev', true);
-    $kernel->loadClassCache();
-    $request = Request::createFromGlobals();
-    $response = $kernel->handle($request);
-    $response->send();
-    $kernel->terminate($request, $response);
