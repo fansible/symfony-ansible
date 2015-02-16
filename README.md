@@ -1,6 +1,13 @@
 # Ansible provisioning for Symfony project using composer
 This project is meant to make the provisioning of servers running one Symfony app as easy and fast as possible.
 
+## Requirements
+
+You should have on your server installed:
+* [Ansible](http://docs.ansible.com/intro_installation.html)
+* [Composer](https://getcomposer.org/download/)
+* [MySQL](http://dev.mysql.com/doc/refman/5.7/en/installing.html)
+
 ## How to use it
 
 1) Require fansible/composer in your composer.json : `composer require --dev "fansible/composer"`
