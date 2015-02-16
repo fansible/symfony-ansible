@@ -14,7 +14,7 @@ This project is meant to make the provisioning of servers running one Symfony ap
 3) Add your hosts configurations. For vagrant, create a file called `vagrant` in `app/config/ansible/hosts`:
     
     [vagrant]
-    vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
+    vagrant ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222 is_vagrant=true
 
 4) Add the specific vars of your host. For vagrant, create a file called `vagrant` in `app/config/ansible/hosts/group_vars`:
 
@@ -73,7 +73,7 @@ For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fan
       end
     end
 
-2) Change your app_dev.php to allow remote connection. You can copy/paste:
+2) Change your web/app_dev.php to allow remote connection. You can copy/paste:
 
     <?php
 
