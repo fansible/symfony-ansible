@@ -33,7 +33,9 @@ This project is meant to make the provisioning of servers running one Symfony ap
         pass: "{{ name }}"
 
 5) If you have already installed Ansible, you can now run your provisioning.
+
 For your vagrant: `vagrant provision`
+
 For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fansible/composer/playbook.yml -u root`.
 
 ## Bonus step for Vagrant
