@@ -9,13 +9,13 @@ You should have on your server installed:
 
 ## How to use it
 
-1) Require fansible/composer in your composer.json: `composer require --dev "fansible/composer"`
+1) Require fansible/symfony-ansible in your composer.json: `composer require --dev "fansible/symfony-ansible"`
 
 2) Add the file ansible.cfg in your root directory with
 
     [defaults]
     hostfile = app/config/ansible/hosts
-    roles_path = vendor/fansible/composer/roles
+    roles_path = vendor/fansible/symfony-ansible/roles
 
 3) Add your hosts configurations. For vagrant, create a file called `vagrant` in `app/config/ansible/hosts`:
     
@@ -42,7 +42,7 @@ You should have on your server installed:
 
 For your vagrant: `vagrant provision`
 
-For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fansible/composer/playbook.yml -u root`.
+For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fansible/symfony-ansible/playbook.yml -u root`.
 
 ## Bonus step for Vagrant
 
@@ -74,7 +74,7 @@ For any hosts: `ansible-playbook -i app/config/ansible/hosts/HOSTNAME vendor/fan
       # Ansible see https://docs.vagrantup.com/v2/provisioning/ansible.html
       config.vm.provision "ansible" do |ansible|
         ansible.sudo = true
-        ansible.playbook = "vendor/fansible/composer/playbook.yml"
+        ansible.playbook = "vendor/fansible/symfony-ansible/playbook.yml"
         ansible.limit = 'vagrant'
         ansible.inventory_path = "app/config/ansible/hosts/vagrant"
         ansible.verbose = "v" #Use vvvv to get more log
