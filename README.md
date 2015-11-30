@@ -1,3 +1,7 @@
+# /!\ Deprecated /!\
+See https://github.com/fansible/tywin for the newer version.
+
+
 # Ansible provisioning for Symfony project using composer
 This project is meant to make the provisioning of servers running one Symfony app as easy and fast as possible.
 
